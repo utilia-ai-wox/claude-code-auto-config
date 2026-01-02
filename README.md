@@ -45,13 +45,13 @@ C'est tout. Claude analyse votre projet et génère :
 ### Option 1 : One-liner
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/[VOTRE_USER]/claude-auto-config/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/utilia-ai-wox/claude-auto-config/main/install.sh | bash
 ```
 
 ### Option 2 : Clone
 
 ```bash
-git clone https://github.com/[VOTRE_USER]/claude-auto-config.git
+git clone https://github.com/utilia-ai-wox/claude-auto-config.git
 cd claude-auto-config && ./install.sh
 ```
 

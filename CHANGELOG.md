@@ -218,5 +218,5 @@ If you used previous unofficial versions (pre-1.0.0):
 
 ---
 
-[1.0.0]: https://github.com/[VOTRE_USER]/claude-auto-config/releases/tag/v1.0.0
-[Unreleased]: https://github.com/[VOTRE_USER]/claude-auto-config/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/utilia-ai-wox/claude-auto-config/releases/tag/v1.0.0
+[Unreleased]: https://github.com/utilia-ai-wox/claude-auto-config/compare/v1.0.0...HEAD

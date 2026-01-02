@@ -1,16 +1,16 @@
 blank_issues_enabled: false
 contact_links:
   - name: 📚 Documentation
-    url: https://github.com/[VOTRE_USER]/claude-auto-config/blob/main/README.md
+    url: https://github.com/utilia-ai-wox/claude-auto-config/blob/main/README.md
     about: Consultez la documentation complète du projet
   - name: ❓ FAQ
-    url: https://github.com/[VOTRE_USER]/claude-auto-config/blob/main/docs/FAQ.md
+    url: https://github.com/utilia-ai-wox/claude-auto-config/blob/main/docs/FAQ.md
     about: Questions fréquemment posées (File exclusions, LSP, Permissions, etc.)
   - name: 🤝 Contributing Guide
-    url: https://github.com/[VOTRE_USER]/claude-auto-config/blob/main/CONTRIBUTING.md
+    url: https://github.com/utilia-ai-wox/claude-auto-config/blob/main/CONTRIBUTING.md
     about: Guide pour contribuer au projet (Official features only)
   - name: 💬 Discussions
-    url: https://github.com/[VOTRE_USER]/claude-auto-config/discussions
+    url: https://github.com/utilia-ai-wox/claude-auto-config/discussions
     about: Posez des questions ou discutez avec la communauté
   - name: 📖 Claude Code Official Docs
     url: https://code.claude.com/docs
