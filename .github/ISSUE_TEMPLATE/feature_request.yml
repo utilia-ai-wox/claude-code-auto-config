@@ -1,0 +1,189 @@
+name: ✨ Feature Request
+description: Proposer une nouvelle fonctionnalité
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Merci de proposer une amélioration pour Claude Code Auto-Config !
+
+        **IMPORTANT:** Ce projet implémente **uniquement** des features officielles de Claude Code.
+
+        **Avant de continuer**, vérifiez :
+        - [ ] Cette feature **est documentée** dans [Claude Code docs officielles](https://code.claude.com/docs)
+        - [ ] Cette feature **n'est pas déjà disponible** dans l'auto-config
+        - [ ] Vous avez un **use case concret** (pas théorique)
+
+        **Si la feature n'existe pas dans Claude Code :**
+        → Proposez-la d'abord sur [Claude Code repo](https://github.com/anthropics/claude-code/issues)
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Type de feature
+      description: Catégorisez votre proposition
+      options:
+        - Nouveau type de projet détecté
+        - Amélioration détection existante
+        - Nouveau hook par défaut
+        - Amélioration permissions
+        - Amélioration CLAUDE.md généré
+        - Documentation / Exemples
+        - Autre (précisez dans description)
+    validations:
+      required: true
+
+  - type: input
+    id: official-docs
+    attributes:
+      label: Lien vers documentation officielle
+      description: "Lien vers la doc Claude Code officielle qui supporte cette feature"
+      placeholder: "https://code.claude.com/docs/..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: feature-description
+    attributes:
+      label: Description de la feature
+      description: Décrivez clairement ce que vous proposez
+      placeholder: |
+        **Feature proposée:**
+        Support pour détection de projets Rust/Cargo
+
+        **Pourquoi cette feature ?**
+        J'ai des projets Rust et l'auto-config ne les détecte pas actuellement.
+    validations:
+      required: true
+
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case concret
+      description: Expliquez votre cas d'usage réel (pas théorique)
+      placeholder: |
+        **Mon contexte:**
+        Je développe une CLI en Rust avec Cargo. Actuellement, l'auto-config ne détecte pas mon projet et je dois tout configurer manuellement.
+
+        **Ce que je veux:**
+        Lancer `/project:auto-config` et avoir automatiquement:
+        - Détection via `Cargo.toml`
+        - CLAUDE.md avec structure Rust (src/, tests/, Cargo.toml)
+        - Commandes: `cargo build`, `cargo test`, `cargo run`
+        - Permissions adaptées
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-implementation
+    attributes:
+      label: Implémentation proposée (optionnel)
+      description: Si vous avez des idées sur comment implémenter
+      placeholder: |
+        ### Détection
+        - Marker: Présence de `Cargo.toml`
+        - Parser `Cargo.toml` pour extraire nom du projet
+
+        ### CLAUDE.md généré
+        ```markdown
+        # [Project Name]
+
+        ## Architecture
+        Projet Rust avec Cargo.
+
+        - `src/` - Code source
+        - `tests/` - Tests
+        - `Cargo.toml` - Dépendances
+
+        ## Commands
+        cargo build    # Compiler
+        cargo test     # Tests
+        cargo run      # Exécuter
+        cargo clippy   # Linter
+        ```
+
+        ### Permissions
+        - Deny: `Bash(cargo clean:*)` (demander confirmation)
+        - Allow: `Read(./src/**/*.rs)`, `Read(./Cargo.toml)`
+      render: markdown
+
+  - type: checkboxes
+    id: compliance-check
+    attributes:
+      label: Compliance Claude Code Officiel
+      description: Vérifiez que votre feature respecte ces critères
+      options:
+        - label: "✅ La feature existe dans Claude Code officiel"
+          required: false
+        - label: "✅ J'ai un lien vers la documentation officielle (ou: feature n'utilise que des mécanismes existants comme CLAUDE.md/settings.json)"
+          required: false
+        - label: "✅ La feature ne nécessite PAS de fichier inventé (`.claudeignore`, `.lsp.json`, etc.)"
+          required: true
+        - label: "✅ J'ai vérifié que cette feature n'existe pas déjà"
+          required: true
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: Complexité estimée
+      description: Selon vous, quelle est la difficulté d'implémentation ?
+      options:
+        - 🟢 Facile (< 1 jour)
+        - 🟡 Moyen (1-3 jours)
+        - 🔴 Complexe (> 3 jours)
+        - 🤷 Je ne sais pas
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution
+      description: Seriez-vous prêt à contribuer cette feature ?
+      options:
+        - label: "Je peux contribuer cette feature via une PR"
+        - label: "Je peux aider à tester la feature"
+        - label: "Je préfère juste proposer l'idée"
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considérées
+      description: Avez-vous envisagé d'autres solutions ?
+      placeholder: |
+        **Option 1:** Ajouter Rust au auto-config
+        **Option 2:** Créer un template manuel pour Rust
+        **Option 3:** Forker l'auto-config et ajouter support Rust
+
+        J'ai choisi l'option 1 car...
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexte additionnel
+      description: Informations additionnelles pertinentes
+      placeholder: |
+        - Nombre estimé d'utilisateurs impactés
+        - Liens vers discussions/issues similaires
+        - Screenshots/exemples
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        **Merci pour votre proposition !** 🙏
+
+        L'équipe évaluera la feature selon ces critères :
+        - ✅ Compliance avec features officielles Claude Code
+        - ✅ Use case concret et réaliste
+        - ✅ Bénéfice pour la communauté
+        - ✅ Faisabilité technique
+        - ✅ Maintenabilité à long terme
+
+        **Features community/expérimentales :** Si votre feature n'est pas officielle dans Claude Code, nous vous encourageons à :
+        1. Proposer la feature sur [Claude Code repo](https://github.com/anthropics/claude-code/issues)
+        2. Forker ce projet et maintenir votre version avec features additionnelles
+        3. Documenter clairement que c'est non-officiel
+
+        **Philosophie du projet :** Mieux vaut ne pas avoir une feature que d'avoir une feature non-officielle qui ne marche pas.
